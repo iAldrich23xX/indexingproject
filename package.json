@@ -48,7 +48,7 @@
     "@tiptap/pm": "^3.5.0",
     "@tiptap/react": "^3.5.0",
     "@tiptap/starter-kit": "^3.5.0",
-    "axios": "^1.12.2",
+    "axios": "^1.13.4",
     "editorjs-carousel": "^1.0.7",
     "editorjs-chart": "^1.0.3",
     "editorjs-inline-font-size-tool": "^1.0.1",
