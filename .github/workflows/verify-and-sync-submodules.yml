@@ -1,0 +1,67 @@
+name: Verify and Sync Submodules
+
+on:
+  push:
+    branches:
+      - development
+      - production
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Detect current branch
+        id: detect_branch
+        run: |
+          BRANCH="${GITHUB_REF##*/}"
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Current branch: $BRANCH"
+
+      - name: Update submodule to latest commit of same branch
+        run: |
+          BRANCH="${{ steps.detect_branch.outputs.branch }}"
+          echo "➡Syncing submodule 'src/shared' with branch '$BRANCH'..."
+
+          cd src/shared
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+          git pull origin "$BRANCH"
+          cd ../..
+
+          echo "Submodule updated to latest commit of '$BRANCH'."
+
+      - name: Check for submodule changes
+        id: check_changes
+        run: |
+          git add src/shared
+          if git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No submodule changes detected."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "⚠Submodule changes detected."
+          fi
+
+      - name: Commit and push updated submodule
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          BRANCH="${{ steps.detect_branch.outputs.branch }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "chore: sync submodule shared to latest commit on $BRANCH"
+          git push origin "$BRANCH"
+
+          echo "Submodule changes committed and pushed successfully!"

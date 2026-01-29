@@ -1,0 +1,109 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - production
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    if: startsWith(github.event.head_commit.message, '[Release] ')
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Sync submodule shared with production branch
+        run: |
+          echo "➡Verificando submódulo src/shared..."
+          cd src/shared
+          git fetch origin production
+          git checkout production
+          git pull origin production
+          cd ../..
+          echo "Submódulo src/shared sincronizado con la rama 'production'"
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.19.0
+          cache: 'npm'
+
+      - name: Read version from package.json
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(node -p 'require("./package.json").version')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create .env.production
+        run: |
+          cat > .env.production <<EOF
+          VITE_API_BACKEND_URL=${{ secrets.VITE_API_BACKEND_URL }}
+          EOF
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Create .htaccess
+        run: |
+          cat > ./build/.htaccess <<'EOL'
+          <IfModule mod_rewrite.c>
+            RewriteEngine On
+            RewriteBase /
+          
+            RewriteCond %{REQUEST_FILENAME} -f [OR]
+            RewriteCond %{REQUEST_FILENAME} -d
+            RewriteRule ^ - [L]
+          
+            RewriteRule . /index.html [L]
+          </IfModule>
+          
+          Options -Indexes
+          
+          <IfModule mod_deflate.c>
+            AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+          </IfModule>
+          
+          <IfModule mod_expires.c>
+            ExpiresActive On
+            ExpiresByType text/css "access plus 7 days"
+            ExpiresByType application/javascript "access plus 7 days"
+            ExpiresByType image/jpg "access plus 30 days"
+            ExpiresByType image/jpeg "access plus 30 days"
+            ExpiresByType image/png "access plus 30 days"
+            ExpiresByType image/gif "access plus 30 days"
+            ExpiresByType image/svg+xml "access plus 30 days"
+            ExpiresDefault "access plus 1 month"
+          </IfModule>
+          
+          <If "%{REQUEST_URI} =~ /index.html$/">
+            <IfModule mod_headers.c>
+              Header set Cache-Control "private, no-cache, no-store, must-revalidate"
+              Header set Pragma "no-cache"
+              Header set Expires 0
+            </IfModule>
+          </If>
+          EOL
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          release_name: Release v${{ steps.version.outputs.version }}
+          body: "release for version v${{ steps.version.outputs.version }}"
+          draft: false
+          prerelease: false

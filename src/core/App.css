@@ -1,0 +1,16 @@
+@layer base {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    * {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(to right, #2E313D, #060606);
+}

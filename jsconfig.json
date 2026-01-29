@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+     "module": "ESNext",
+    "types": [
+      "vitest/globals"
+    ],
+    "paths": {
+      "@/*": ["*"],
+      "@core/*": ["src/core/*"],
+      "@shared/*": ["src/shared/*"],
+      "@integrations/*": ["src/integrations/*"],
+      "@store/*": ["src/store/*"],
+      "@libs/*": ["libs/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "build", ".idea", ".github"]
+}
