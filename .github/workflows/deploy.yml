@@ -32,7 +32,7 @@ jobs:
           echo "Submódulo src/shared sincronizado con la rama 'production'"
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22.19.0
           cache: 'npm'
