@@ -1,1 +1,97 @@
 @import "tailwindcss";
+
+:root {
+    /* Brand */
+    --primary: rgb(106 18 106);
+    --primary-soft: rgb(157 105 168);
+    --accent: rgb(201 180 216);
+
+    /* Backgrounds */
+    --background: rgb(244 245 247);
+    --background-mid: rgb(210 213 220);
+    --background-end: rgb(88 24 95);
+
+    /* Surfaces */
+    --card: rgb(255 255 255);
+    --card-dark: rgb(45 16 48);
+
+    /* Text */
+    --foreground: rgb(24 24 27);
+    --muted-foreground: rgb(120 113 130);
+    --foreground-invert: rgb(248 250 252);
+
+    /* States */
+    --success: rgb(34 197 94);
+    --warning: rgb(234 179 8);
+    --destructive: rgb(239 68 68);
+    --error: rgb(255, 0, 0);
+
+    /* UI */
+    --border: rgb(210 213 220);
+    --input: rgb(210 213 220);
+    --ring: rgb(157 105 168);
+
+    --radius: 0.625rem;
+}
+
+/* ============================= */
+/*         DARK MODE           */
+/* ============================= */
+
+.dark {
+    --background: rgb(18 10 22);
+    --background-mid: rgb(45 16 48);
+    --background-end: rgb(5 2 8);
+
+    --card: rgb(30 10 35);
+
+    --foreground: rgb(248 250 252);
+    --muted-foreground: rgb(157 105 168);
+
+    --border: rgb(45 16 48);
+    --input: rgb(45 16 48);
+    --ring: rgb(201 180 216);
+}
+
+@theme inline {
+    /* Core */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    /* Brand */
+    --color-primary: var(--primary);
+    --color-primary-soft: var(--primary-soft);
+    --color-accent: var(--accent);
+
+    /* UI */
+    --color-card: var(--card);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Text */
+    --color-muted-foreground: var(--muted-foreground);
+    --color-foreground-invert: var(--foreground-invert);
+
+    /* States */
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-destructive: var(--destructive);
+    --color-error: var(--error);
+
+    /* Radius */
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
