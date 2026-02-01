@@ -56,7 +56,8 @@
 @theme inline {
     /* Core */
     --color-background: var(--background);
-    --color-foreground: var(--foreground);
+    --color-background-mid: var(--background-mid);
+    --color-background-end: var(--background-end);
 
     /* Brand */
     --color-primary: var(--primary);
@@ -70,6 +71,7 @@
     --color-ring: var(--ring);
 
     /* Text */
+    --color-foreground: var(--foreground);
     --color-muted-foreground: var(--muted-foreground);
     --color-foreground-invert: var(--foreground-invert);
 
@@ -93,5 +95,25 @@
 
     body {
         @apply bg-background text-foreground;
+    }
+    .tire-img-wrap {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .tire-img {
+        position: absolute;
+        top: -10%;
+        left: -25%;
+        width: 60%;
+        height: 100%;
+
+        transform: translate(0, 0) rotate(-50deg);
+
+        opacity: 0.45;
+        filter: blur(1px) contrast(1.1);
+
+        mix-blend-mode: multiply;
     }
 }
