@@ -4,7 +4,10 @@ import Navbar from '@core/components/organisms/Navbar.jsx';
 
 export default function Index() {
     return (
-        <main className="min-h-screen overflow-y-auto bg-gradient-to-br from-bg-start via-bg-mid to-bg-end text-text-invert">
+        <>
+            <Navbar />
+
+            <main className="min-h-screen overflow-y-auto bg-gradient-to-br from-bg-start via-bg-mid to-bg-end text-text-invert">
 
                 <HeroSection/>
                 <section className="relative bg-background-end flex flex-col items-center justify-center text-center px-6 py-28">
@@ -68,18 +71,19 @@ export default function Index() {
                                 hover:-translate-y-2
                                 shadow-lg
                             "
-                        >
-                            <h3 className="text-xl font-bold text-primary-soft mb-4">
-                                {item.title}
-                            </h3>
-                            <p className="text-text-invert/80">
-                                {item.desc}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                            >
+                                <h3 className="text-xl font-bold text-primary-soft mb-4">
+                                    {item.title}
+                                </h3>
+                                <p className="text-text-invert/80">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </main>
 
-        </main>
+        </>
     );
 }

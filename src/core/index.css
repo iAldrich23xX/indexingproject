@@ -96,6 +96,17 @@
     body {
         @apply bg-background text-foreground;
     }
+
+    .navbar-dots {
+        position: absolute;
+        inset: -50%;
+        background:
+                radial-gradient(circle, rgba(157,105,168,0.35) 1px, transparent 1px);
+        background-size: 18px 18px;
+        opacity: 0.4;
+        filter: blur(1px);
+    }
+
     .tire-img-wrap {
         position: absolute;
         inset: 0;
