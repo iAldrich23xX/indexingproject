@@ -3,7 +3,7 @@ import { useRef, useMemo, useEffect } from 'react';
 import Canvas from '@core/components/atoms/Canvas';
 import DotGridLayer from '@core/components/molecules/DotGridLayer.jsx';
 
-import { hexToRgb, resolveColor } from '@core/utils/color.jsx';
+import { resolveColor } from '@core/utils/color.jsx';
 import { useGrid } from '@core/components/organisms/DotGrid/useGrid.jsx';
 import { useInteraction } from '@core/components/organisms/DotGrid/useInteraction.jsx';
 import { useDraw } from '@core/components/organisms/DotGrid/useDraw.jsx';
