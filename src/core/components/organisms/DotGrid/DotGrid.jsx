@@ -36,24 +36,14 @@ export default function DotGrid({
         lastY: 0
     });
 
-    const resolvedBaseColor = useMemo(
+    const baseColorResolved = useMemo(
         () => resolveColor(baseColor),
         [baseColor]
     );
 
-    const resolvedActiveColor = useMemo(
+    const activeColorResolved = useMemo(
         () => resolveColor(activeColor),
         [activeColor]
-    );
-
-    const baseRgb = useMemo(
-        () => hexToRgb(resolvedBaseColor),
-        [resolvedBaseColor]
-    );
-
-    const activeRgb = useMemo(
-        () => hexToRgb(resolvedActiveColor),
-        [resolvedActiveColor]
     );
 
     const circlePath = useMemo(() => {
@@ -76,9 +66,8 @@ export default function DotGrid({
         dotsRef,
         pointerRef,
         circlePath,
-        baseColor: resolvedBaseColor,
-        baseRgb,
-        activeRgb,
+        baseColor: baseColorResolved,
+        activeColor: activeColorResolved,
         proximity
     });
 

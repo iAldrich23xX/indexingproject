@@ -6,8 +6,7 @@ export function useDraw({
                             pointerRef,
                             circlePath,
                             baseColor,
-                            baseRgb,
-                            activeRgb,
+                            activeColor,
                             proximity
                         }) {
     useEffect(() => {
@@ -34,20 +33,30 @@ export function useDraw({
                 const dy = dot.cy - py;
                 const dsq = dx * dx + dy * dy;
 
-                let style = baseColor;
+                let color = baseColor;
 
                 if (dsq <= proxSq) {
                     const dist = Math.sqrt(dsq);
                     const t = 1 - dist / proximity;
-                    const r = Math.round(baseRgb.r + (activeRgb.r - baseRgb.r) * t);
-                    const g = Math.round(baseRgb.g + (activeRgb.g - baseRgb.g) * t);
-                    const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
-                    style = `rgb(${r},${g},${b})`;
+
+                    const r = Math.round(
+                        baseColor.r + (activeColor.r - baseColor.r) * t
+                    );
+                    const g = Math.round(
+                        baseColor.g + (activeColor.g - baseColor.g) * t
+                    );
+                    const b = Math.round(
+                        baseColor.b + (activeColor.b - baseColor.b) * t
+                    );
+                    const a =
+                        baseColor.a + (activeColor.a - baseColor.a) * t;
+
+                    color = { r, g, b, a };
                 }
 
                 ctx.save();
                 ctx.translate(ox, oy);
-                ctx.fillStyle = style;
+                ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
                 ctx.fill(circlePath);
                 ctx.restore();
             }
@@ -60,8 +69,7 @@ export function useDraw({
     }, [
         proximity,
         baseColor,
-        activeRgb,
-        baseRgb,
+        activeColor,
         circlePath,
         canvasRef,
         dotsRef,

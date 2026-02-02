@@ -9,36 +9,52 @@ export function hexToRgb(hex) {
 }
 
 export function resolveColor(input) {
-    if (!input) return '#000000';
+    if (!input) return { r: 0, g: 0, b: 0, a: 1 };
 
-    if (input.startsWith('#')) return input;
+    let alpha = 1;
+    let className = input;
 
-    if (input.startsWith('bg-')) {
-        if (typeof window === 'undefined') return '#000000';
+    if (input.includes('/')) {
+        const parts = input.split('/');
+        className = parts[0];
+        alpha = parseInt(parts[1], 10) / 100;
+    }
+
+    if (className.startsWith('#')) {
+        const rgb = hexToRgb(className);
+        return { ...rgb, a: alpha };
+    }
+
+    if (className.startsWith('bg-')) {
+        if (typeof window === 'undefined') {
+            return { r: 0, g: 0, b: 0, a: alpha };
+        }
 
         const el = document.createElement('div');
-        el.className = input;
+        el.className = className;
         document.body.appendChild(el);
 
         const color = getComputedStyle(el).backgroundColor;
         document.body.removeChild(el);
 
-        return rgbStringToHex(color);
+        const rgb = parseCssColor(color);
+        return { ...rgb, a: alpha };
     }
 
-    return '#000000';
+    return { r: 0, g: 0, b: 0, a: alpha };
 }
 
-function rgbStringToHex(rgb) {
-    const m = rgb.match(
-        /^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/
+function parseCssColor(css) {
+    const m = css.match(
+        /^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/
     );
-    if (!m) return '#000000';
 
-    const toHex = v => {
-        const h = parseInt(v, 10).toString(16);
-        return h.length === 1 ? '0' + h : h;
+    if (!m) return { r: 0, g: 0, b: 0, a: 1 };
+
+    return {
+        r: parseInt(m[1], 10),
+        g: parseInt(m[2], 10),
+        b: parseInt(m[3], 10),
+        a: m[4] !== undefined ? parseFloat(m[4]) : 1
     };
-
-    return `#${toHex(m[1])}${toHex(m[2])}${toHex(m[3])}`;
 }
