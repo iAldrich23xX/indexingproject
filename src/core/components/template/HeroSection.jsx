@@ -3,6 +3,7 @@ import mark from "@core/assets/tire-mark.png";
 import background from "@core/assets/width_1088.webp"
 import React from 'react';
 import Logo from '@core/components/atoms/Logo.jsx';
+import Button from "@core/components/atoms/Button.jsx";
 
 export default function HeroSection() {
     return (
@@ -34,17 +35,31 @@ export default function HeroSection() {
                 resistance={750}
                 returnDuration={1.5}
             >
-                <h1 className="text-5xl md:text-7xl text-foreground-invert font-extrabold mb-8 tracking-tight leading-tight text-center drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
-                    FINANZAS REALES
-                    <span className="block text-primary-soft">
-                        EN CADA KILÓMETRO
-                    </span>
-                </h1>
+                <div className="flex flex-col items-center text-center">
+                    <h1 className="text-5xl md:text-7xl text-foreground-invert font-extrabold mb-8 tracking-tight leading-tight drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
+                        FINANZAS REALES
+                        <span className="block text-primary-soft">
+                            EN CADA KILÓMETRO
+                        </span>
+                    </h1>
+
+                    <div className="flex flex-col sm:flex-row gap-4 drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
+                        <Button variant="white" to="/catalogo">
+                            Ver catálogo
+                        </Button>
+
+                        <Button variant="primary" to="/about">
+                            Sobre nosotros
+                        </Button>
+                    </div>
+                </div>
             </DotGrid>
 
             <div className="absolute inset-0 flex items-center justify-end pointer-events-none">
                 <div className="pr-28">
                     <Logo size="hero" variant="hero" showText={false} />
+
+
                 </div>
             </div>
 
@@ -57,8 +72,24 @@ export default function HeroSection() {
                     bg-gradient-to-b
                     from-transparent
                     to-background-end
+                    flex
+                    justify-center
                 "
-            />
+            >
+                <span
+                    className="
+                        absolute
+                        bottom-60
+                        text-lg
+                        md:text-xl
+                        font-medium
+                        tracking-widest
+                        neon-hud-solid
+                    "
+                >
+                    HUB DE SERVICIOS | ASESORÍA FINANCIERA
+                </span>
+            </div>
         </section>
     );
 }
