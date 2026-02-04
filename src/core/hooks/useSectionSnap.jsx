@@ -52,6 +52,8 @@ export default function useSectionSnap(offset = 0) {
         const onWheel = (e) => {
             if (lockedRef.current) return;
 
+            e.preventDefault();
+
             if (e.deltaY > 0) {
                 scrollNext();
             } else {
@@ -59,7 +61,7 @@ export default function useSectionSnap(offset = 0) {
             }
         };
 
-        window.addEventListener("wheel", onWheel, { passive: true });
+        window.addEventListener("wheel", onWheel, { passive: false });
 
         return () => {
             window.removeEventListener("wheel", onWheel);
