@@ -1,13 +1,34 @@
-import DotGrid from '@core/components/organisms/DotGrid/DotGrid.jsx';
-import mark from "@core/assets/tire-mark.png";
-import background from "@core/assets/width_1088.webp"
 import React from 'react';
+
+import { ArrowDown } from "lucide-react";
+
 import Logo from '@core/components/atoms/Logo.jsx';
 import Button from "@core/components/atoms/Button.jsx";
 
-export default function HeroSection() {
+import DotGrid from '@core/components/organisms/DotGrid/DotGrid.jsx';
+import mark from "@core/assets/tire-mark.png";
+
+import background from "@core/assets/width_1088.webp"
+
+export default function HeroSection({ onScrollNext }) {
+    const scrollToNext = () => {
+        const sections = Array.from(document.querySelectorAll("[data-snap]"));
+        const y = window.scrollY;
+
+        const next = sections.find(
+            (s) => s.getBoundingClientRect().top + window.pageYOffset > y + 10
+        );
+
+        if (!next) return;
+
+        window.scrollTo({
+            top: next.getBoundingClientRect().top + window.pageYOffset,
+            behavior: "smooth",
+        });
+    };
+
     return (
-        <section className="w-full h-250 relative">
+        <section data-snap className="w-full h-250 relative min-h-screen">
             <div
                 className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat bg-fixed"
                 style={{ backgroundImage: `url(${background})` }}
@@ -88,6 +109,40 @@ export default function HeroSection() {
                     "
                 >
                     HUB DE SERVICIOS | ASESORÍA FINANCIERA
+                </span>
+
+                <span
+                    onClick={onScrollNext}
+                    aria-label="Scroll to features section"
+                    className="
+                        absolute
+                        bottom-10
+                        cursor-pointer
+                        pointer-events-auto
+                        flex
+                        items-center
+                        justify-center
+                        w-20 h-20
+                        rounded-full
+
+                        text-lg
+                        md:text-xl
+                        font-medium
+                        tracking-widest
+                        neon-hud-solid
+
+                        hover:scale-110
+                        hover:shadow-[0_0_30px_rgba(106,18,106,0.8)]
+                        transition-all
+                        duration-300
+                        ease-out
+
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-primary/60
+                    "
+                >
+                    <ArrowDown className="w-6 h-6 animate-bounce" />
                 </span>
             </div>
         </section>

@@ -97,6 +97,10 @@
         @apply bg-background text-foreground;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     .navbar-dots {
         position: absolute;
         inset: -50%;

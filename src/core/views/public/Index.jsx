@@ -2,16 +2,29 @@ import React from "react";
 import HeroSection from '@core/components/template/HeroSection.jsx';
 import Navbar from '@core/components/organisms/Navbar.jsx';
 
+import useSectionSnap from "@core/hooks/useSectionSnap";
+
 export default function Index() {
+    //useSectionSnap(-80); if navbar is sticky
+    const snap = useSectionSnap(0);
+
     return (
         <>
-            <Navbar />
+            <main
+                className="
+                    min-h-screen
+                    scroll-smooth
+                    bg-gradient-to-br
+                    from-bg-start
+                    via-bg-mid
+                    to-bg-end
+                    text-text-invert
+                "
+            >
+                <Navbar />
+                <HeroSection onScrollNext={snap.scrollNext}/>
 
-            <main className="min-h-screen overflow-y-auto bg-gradient-to-br from-bg-start via-bg-mid to-bg-end text-text-invert">
-
-                <HeroSection/>
-                <section className="relative bg-background-end flex flex-col items-center justify-center text-center px-6 py-28">
-
+                <section id="features" data-snap className="relative bg-background-end h-250 flex flex-col items-center justify-center text-center px-6 py-28">
                     <p className="text-text-invert/80 max-w-2xl text-lg md:text-xl">
                         Hub de servicios y asesoría financiera para crecer con potencia,
                         precisión y visión a largo plazo.
@@ -45,11 +58,8 @@ export default function Index() {
                     </div>
                 </section>
 
-                {/* SEPARADOR */}
-                <div className="h-24 bg-gradient-to-b from-transparent to-bg-start" />
-
                 {/* FEATURES / SECTION */}
-                <section className="py-24 px-6 bg-surface text-text relative">
+                <section data-snap className="py-24 px-6 bg-surface h-250 text-text relative min-h-screen snap-start">
                     <h2 className="text-4xl font-bold text-center text-primary mb-16">
                         Indexing Project
                     </h2>
@@ -83,7 +93,6 @@ export default function Index() {
                     </div>
                 </section>
             </main>
-
         </>
     );
 }
