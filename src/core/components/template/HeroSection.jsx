@@ -11,22 +11,6 @@ import mark from "@core/assets/tire-mark.png";
 import background from "@core/assets/width_1088.webp"
 
 export default function HeroSection({ onScrollNext }) {
-    const scrollToNext = () => {
-        const sections = Array.from(document.querySelectorAll("[data-snap]"));
-        const y = window.scrollY;
-
-        const next = sections.find(
-            (s) => s.getBoundingClientRect().top + window.pageYOffset > y + 10
-        );
-
-        if (!next) return;
-
-        window.scrollTo({
-            top: next.getBoundingClientRect().top + window.pageYOffset,
-            behavior: "smooth",
-        });
-    };
-
     return (
         <section data-snap className="w-full h-250 relative min-h-screen">
             <div
