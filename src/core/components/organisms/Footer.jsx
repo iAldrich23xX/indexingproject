@@ -1,25 +1,12 @@
 import Logo from '@core/components/atoms/Logo.jsx';
-
-const footerColumns = [
-    {
-        title: "Compañía",
-        links: ["Sobre nosotros", "Equipo", "Aliados", "Contacto"]
-    },
-    {
-        title: "Servicios",
-        links: ["Protección financiera", "Crecimiento indexado", "Formación", "Arquitectura FIXER"]
-    },
-    {
-        title: "Recursos",
-        links: ["Blog", "Preguntas frecuentes", "Políticas", "Soporte"]
-    }
-];
+import FooterLinkColumn from "@core/components/molecules/footer/FooterLinkColumn.jsx";
+import { footerColumns, footerLegalLinks } from "@core/data/home/footerData.js";
 
 export default function Footer() {
     return (
         <footer
             data-snap
-            className="relative bg-background-end px-6 py-16 md:py-24" // Eliminado min-h-screen y h-250
+            className="relative bg-background-end px-6 py-16 md:py-24"
         >
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background-end to-[#1a081d]/50" />
             <div className="pointer-events-none absolute -top-16 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary-soft/10 blur-[100px]" />
@@ -39,20 +26,14 @@ export default function Footer() {
 
                     <div className="grid gap-8 grid-cols-2 sm:grid-cols-3">
                         {footerColumns.map((column) => (
-                            <div key={column.title}>
-                                <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent/90">
-                                    {column.title}
-                                </h3>
-                                <ul className="mt-5 space-y-2.5">
-                                    {column.links.map((link) => (
-                                        <li key={link}>
-                                            <a href="#" className="text-[13px] text-foreground-invert/60 transition-colors hover:text-primary">
-                                                {link}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <FooterLinkColumn
+                                key={column.title}
+                                title={column.title}
+                                links={column.links}
+                                titleClassName="text-[11px] font-bold uppercase tracking-[0.2em] text-accent/90"
+                                listClassName="mt-5 space-y-2.5"
+                                linkClassName="text-[13px] text-foreground-invert/60 transition-colors hover:text-primary"
+                            />
                         ))}
                     </div>
                 </div>
@@ -60,9 +41,11 @@ export default function Footer() {
                 <div className="mt-8 flex flex-col gap-6 text-[11px] font-medium uppercase tracking-wider text-foreground-invert/40 md:flex-row md:items-center md:justify-between">
                     <p>© {new Date().getFullYear()} Indexing Project. Rodando con estrategia.</p>
                     <div className="flex items-center gap-6">
-                        <a href="#" className="transition-colors hover:text-foreground-invert">Términos</a>
-                        <a href="#" className="transition-colors hover:text-foreground-invert">Privacidad</a>
-                        <a href="#" className="transition-colors hover:text-foreground-invert">Cookies</a>
+                        {footerLegalLinks.map((link) => (
+                            <a key={link} href="#" className="transition-colors hover:text-foreground-invert">
+                                {link}
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

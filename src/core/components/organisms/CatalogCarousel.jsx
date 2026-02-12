@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import CatalogPreviewCard from '@core/components/molecules/CatalogPreviewCard.jsx';
+import useDuplicatedList from "@core/hooks/useDuplicatedList.jsx";
 
 export default function CatalogCarousel({
                                             items = [],
                                             interval = 4000
                                         }) {
     const length = items.length;
-    const extendedItems = [...items, ...items];
+    const extendedItems = useDuplicatedList(items);
 
     const [current, setCurrent] = useState(0);
     const [isAutoPlay, setIsAutoPlay] = useState(true);
