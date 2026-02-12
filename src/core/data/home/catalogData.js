@@ -59,7 +59,19 @@ export const catalogItems = [
 ];
 
 export const catalogQualityMetrics = [
-    { label: "Soluciones activas", value: "40+" },
-    { label: "Categorías especializadas", value: "8" },
-    { label: "Acompañamiento personalizado", value: "1:1" }
+    {
+        label: "Soluciones activas",
+        value: "40+",
+        animation: { preset: "fadeRight", delay: 0.02 }
+    },
+    {
+        label: "Categorías especializadas",
+        value: "8",
+        animation: { preset: "zoomIn", delay: 0.1 }
+    },
+    {
+        label: "Acompañamiento personalizado",
+        value: "1:1",
+        animation: { preset: "fadeLeft", delay: 0.18 }
+    }
 ];

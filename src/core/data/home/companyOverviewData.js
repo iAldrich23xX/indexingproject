@@ -17,15 +17,18 @@ export const companySummary = {
 export const strategicPillars = [
     {
         title: "Visión corporativa",
-        description: "Transformamos decisiones financieras en estrategias medibles, con foco en sostenibilidad y crecimiento."
+        description: "Transformamos decisiones financieras en estrategias medibles, con foco en sostenibilidad y crecimiento.",
+        animation: { preset: "fadeRight", delay: 0.03 }
     },
     {
         title: "Metodología clara",
-        description: "Estandarizamos procesos y ejecutamos con indicadores concretos para dar control en cada etapa."
+        description: "Estandarizamos procesos y ejecutamos con indicadores concretos para dar control en cada etapa.",
+        animation: { preset: "blurUp", delay: 0.1 }
     },
     {
         title: "Relaciones de largo plazo",
-        description: "Trabajamos con aliados especializados para ampliar capacidades y entregar soluciones integrales."
+        description: "Trabajamos con aliados especializados para ampliar capacidades y entregar soluciones integrales.",
+        animation: { preset: "fadeLeft", delay: 0.17 }
     }
 ];
 

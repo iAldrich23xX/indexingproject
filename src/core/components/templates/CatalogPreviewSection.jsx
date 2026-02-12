@@ -1,4 +1,5 @@
 import CatalogCarousel from '@core/components/organisms/CatalogCarousel.jsx';
+import ScrollReveal from "@core/components/molecules/ScrollReveal.jsx";
 import { catalogItems, catalogQualityMetrics } from "@core/data/home/catalogData.js";
 
 export default function CatalogPreviewSection() {
@@ -19,28 +20,29 @@ export default function CatalogPreviewSection() {
             <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
 
             <div className="relative z-10 w-full max-w-6xl">
-                <div className="mx-auto max-w-4xl text-center space-y-5">
+                <ScrollReveal className="mx-auto max-w-4xl text-center space-y-5" preset="fadeDown">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight text-foreground-invert">
                         Servicios y soluciones que impulsan tu crecimiento
                     </h2>
-                </div>
+                </ScrollReveal>
 
                 <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
                     {catalogQualityMetrics.map((metric) => (
-                        <div
+                        <ScrollReveal
                             key={metric.label}
                             className="rounded-2xl border border-white/15 bg-white/8 px-6 py-5 text-center backdrop-blur-sm"
+                            {...(metric.animation || {})}
                         >
                             <p className="text-3xl font-bold text-foreground-invert">{metric.value}</p>
                             <p className="mt-2 text-sm text-foreground-invert/70">{metric.label}</p>
-                        </div>
+                        </ScrollReveal>
                     ))}
                 </div>
             </div>
 
-            <div className="relative z-10 mt-14 container mx-auto">
+            <ScrollReveal className="relative z-10 mt-14 container mx-auto" preset="zoomIn" delay={0.2}>
                 <CatalogCarousel items={catalogItems}/>
-            </div>
+            </ScrollReveal>
 
             {/*<div className="relative z-10 mt-12 flex flex-wrap justify-center gap-4">
                 <Button variant="white" to="/catalogo">Explorar catálogo</Button>

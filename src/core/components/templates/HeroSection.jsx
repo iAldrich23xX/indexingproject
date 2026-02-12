@@ -4,6 +4,7 @@ import { ArrowDown } from "lucide-react";
 
 import Logo from '@core/components/atoms/Logo.jsx';
 import Button from "@core/components/atoms/Button.jsx";
+import ScrollReveal from "@core/components/molecules/ScrollReveal.jsx";
 
 import DotGrid from '@core/components/organisms/DotGrid/DotGrid.jsx';
 import mark from "@core/assets/images/illustrations/tire-mark.png";
@@ -39,7 +40,13 @@ export default function HeroSection({ onScrollNext }) {
                 resistance={750}
                 returnDuration={1.5}
             >
-                <div className="flex flex-col items-center text-center">
+                <ScrollReveal
+                    className="flex flex-col items-center text-center"
+                    preset="zoomIn"
+                    fromScale={0.84}
+                    fromY={36}
+                    duration={0.8}
+                >
                     <h1 className="text-5xl md:text-7xl text-foreground-invert font-extrabold mb-8 tracking-tight leading-tight drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
                         FINANZAS REALES
                         <span className="block text-primary-soft">
@@ -56,15 +63,13 @@ export default function HeroSection({ onScrollNext }) {
                             Sobre nosotros
                         </Button>
                     </div>
-                </div>
+                </ScrollReveal>
             </DotGrid>
 
             <div className="absolute inset-0 flex items-center justify-end pointer-events-none">
-                <div className="pr-28">
+                <ScrollReveal className="pr-28" preset="fadeRight" fromX={70} delay={0.25} duration={0.85}>
                     <Logo size="hero" variant="hero" showText={false} />
-
-
-                </div>
+                </ScrollReveal>
             </div>
 
             <div
