@@ -30,9 +30,9 @@ export default function Index() {
 
                 <CatalogPreviewSection onScrollNext={snap.scrollNext}/>
 
-                <CompanyOverviewSection/>
+                <CompanyOverviewSection onScrollNext={snap.scrollNext}/>
 
-                <Footer />
+                <Footer onScrollNext={snap.scrollNext}/>
             </main>
         </>
     );
