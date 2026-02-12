@@ -2,6 +2,28 @@ import React from 'react';
 
 import CatalogPreviewCard from "@core/components/molecules/CatalogPreviewCard.jsx";
 import Button from '@core/components/atoms/Button.jsx';
+import CatalogCarousel from '@core/components/organisms/CatalogCarousel.jsx';
+
+const catalogItems = [
+    {
+        title:"Asesoría financiera",
+        description:"Estrategias claras para optimizar recursos, minimizar riesgos y tomar decisiones con confianza.",
+        image:"/images/moto-r7.jpg",
+        category:"Finanzas"
+    },
+    {
+        title:"Servicios especializados",
+        description:"Soluciones a medida para empresas y profesionales que buscan eficiencia y crecimiento sostenible.",
+        image:"/images/moto-r7.jpg",
+        category:"Finanzas",
+    },
+    {
+        title:"Productos estratégicos",
+        description:"Herramientas y recursos pensados para potenciar resultados desde el primer día.",
+        image:"/images/moto-r7.jpg",
+        category:"Finanzas",
+    }
+];
 
 export default function CatalogPreviewSection({ onScrollNext }) {
     return (
@@ -27,21 +49,8 @@ export default function CatalogPreviewSection({ onScrollNext }) {
                 </p>
             </div>
 
-            <div className="mt-16 grid gap-8 md:grid-cols-3 max-w-6xl w-full">
-                <CatalogPreviewCard
-                    title="Asesoría financiera"
-                    description="Estrategias claras para optimizar recursos, minimizar riesgos y tomar decisiones con confianza."
-                />
-
-                <CatalogPreviewCard
-                    title="Servicios especializados"
-                    description="Soluciones a medida para empresas y profesionales que buscan eficiencia y crecimiento sostenible."
-                />
-
-                <CatalogPreviewCard
-                    title="Productos estratégicos"
-                    description="Herramientas y recursos pensados para potenciar resultados desde el primer día."
-                />
+            <div className="mt-16 grid gap-8 container mx-auto">
+                <CatalogCarousel items={catalogItems} />
             </div>
 
             <div className="mt-14 flex flex-wrap justify-center gap-6">
