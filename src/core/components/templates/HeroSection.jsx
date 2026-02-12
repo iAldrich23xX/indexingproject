@@ -45,7 +45,7 @@ export default function HeroSection({ onScrollNext }) {
                     preset="zoomIn"
                     fromScale={0.84}
                     fromY={36}
-                    duration={0.8}
+                    duration={2.0}
                 >
                     <h1 className="text-5xl md:text-7xl text-foreground-invert font-extrabold mb-8 tracking-tight leading-tight drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
                         FINANZAS REALES
@@ -67,7 +67,7 @@ export default function HeroSection({ onScrollNext }) {
             </DotGrid>
 
             <div className="absolute inset-0 flex items-center justify-end pointer-events-none">
-                <ScrollReveal className="pr-28" preset="fadeRight" fromX={70} delay={0.25} duration={0.85}>
+                <ScrollReveal className="pr-28" preset="fadeRight" fromX={70} delay={0.25} duration={2.0}>
                     <Logo size="hero" variant="hero" showText={false} />
                 </ScrollReveal>
             </div>
@@ -85,7 +85,7 @@ export default function HeroSection({ onScrollNext }) {
                     justify-center
                 "
             >
-                <span
+                <ScrollReveal
                     className="
                         absolute
                         bottom-60
@@ -95,9 +95,11 @@ export default function HeroSection({ onScrollNext }) {
                         tracking-widest
                         neon-hud-solid
                     "
+
+                    delay={0.25} duration={2.0}
                 >
                     HUB DE SERVICIOS | ASESORÍA FINANCIERA
-                </span>
+                </ScrollReveal>
 
                 <span
                     onClick={onScrollNext}
@@ -130,7 +132,7 @@ export default function HeroSection({ onScrollNext }) {
                         focus:ring-primary/60
                     "
                 >
-                    <ArrowDown className="w-6 h-6 animate-bounce" />
+                    <ArrowDown className="w-20 h-20 animate-bounce" />
                 </span>
             </div>
         </section>

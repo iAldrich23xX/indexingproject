@@ -20,7 +20,7 @@ export default function CatalogPreviewSection() {
             <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
 
             <div className="relative z-10 w-full max-w-6xl">
-                <ScrollReveal className="mx-auto max-w-4xl text-center space-y-5" preset="fadeDown">
+                <ScrollReveal className="mx-auto max-w-4xl text-center space-y-5" preset="fadeDown" delay={0.25} duration={2.0}>
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight text-foreground-invert">
                         Servicios y soluciones que impulsan tu crecimiento
                     </h2>
@@ -40,7 +40,7 @@ export default function CatalogPreviewSection() {
                 </div>
             </div>
 
-            <ScrollReveal className="relative z-10 mt-14 container mx-auto" preset="zoomIn" delay={0.2}>
+            <ScrollReveal className="relative z-10 mt-14 container mx-auto" preset="zoomIn" delay={0.25} duration={2.0}>
                 <CatalogCarousel items={catalogItems}/>
             </ScrollReveal>
 
