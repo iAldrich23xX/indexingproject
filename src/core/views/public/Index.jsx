@@ -1,9 +1,9 @@
 import React from "react";
-import HeroSection from '@core/components/template/HeroSection.jsx';
+import HeroSection from '@core/components/templates/HeroSection.jsx';
 import Navbar from '@core/components/organisms/Navbar.jsx';
 
 import useSectionSnap from "@core/hooks/useSectionSnap";
-import CatalogPreviewSection from '@core/components/template/CatalogPreviewSection.jsx';
+import CatalogPreviewSection from '@core/components/templates/CatalogPreviewSection.jsx';
 
 export default function Index() {
     //useSectionSnap(-80); if navbar is sticky

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import CatalogPreviewCard from "@core/components/molecules/CatalogPreviewCard.jsx";
 import Button from '@core/components/atoms/Button.jsx';
 import CatalogCarousel from '@core/components/organisms/CatalogCarousel.jsx';
 

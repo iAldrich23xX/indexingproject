@@ -6,9 +6,8 @@ import Logo from '@core/components/atoms/Logo.jsx';
 import Button from "@core/components/atoms/Button.jsx";
 
 import DotGrid from '@core/components/organisms/DotGrid/DotGrid.jsx';
-import mark from "@core/assets/tire-mark.png";
-
-import background from "@core/assets/width_1088.webp"
+import mark from "@core/assets/images/illustrations/tire-mark.png";
+import background from "@core/assets/images/banners/width_1088.webp";
 
 export default function HeroSection({ onScrollNext }) {
     return (

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/core/assets/logo-large.webp" alt="IndexingProject Logo"/>
+  <img src="src/core/assets/images/illustrations/logo-large.webp" alt="IndexingProject Logo"/>
 </p>
 
 # Modern React + Vite Template
