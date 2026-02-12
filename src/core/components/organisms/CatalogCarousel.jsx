@@ -65,9 +65,9 @@ export default function CatalogCarousel({
 
     if (length === 1) {
         return (
-            <div className="flex justify-center">
+            <div className="flex justify-center px-1">
                 <div className="w-full md:w-2/3 lg:w-1/2 px-4">
-                    <CatalogPreviewCard {...items[0]} />
+                    <CatalogPreviewCard {...items[0]}/>
                 </div>
             </div>
         );
@@ -89,34 +89,37 @@ export default function CatalogCarousel({
                             flex-shrink-0 px-4
                         `}
                     >
-                        <CatalogPreviewCard {...item} />
+                        <CatalogPreviewCard {...item}/>
                     </div>
                 ))}
             </div>
 
             <button
                 onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur"
+                aria-label="Ver elemento anterior"
+                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-3 py-2 text-xl text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 md:left-2"
             >
                 ‹
             </button>
 
             <button
                 onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur"
+                aria-label="Ver siguiente elemento"
+                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-3 py-2 text-xl text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 md:right-2"
             >
                 ›
             </button>
 
-            <div className="flex justify-center mt-6 gap-2">
+            <div className="mt-7 flex justify-center gap-2">
                 {items.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => goTo(index)}
+                        aria-label={`Ir al elemento ${index + 1}`}
                         className={`h-2 rounded-full transition-all duration-300 ${
                             current % length === index
-                                ? "bg-primary w-6"
-                                : "bg-border w-2"
+                                ? "bg-accent w-8"
+                                : "bg-white/35 hover:bg-white/60 w-2"
                         }`}
                     />
                 ))}

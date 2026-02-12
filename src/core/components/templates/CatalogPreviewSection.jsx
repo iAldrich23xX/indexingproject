@@ -63,7 +63,13 @@ const catalogItems = [
     }
 ];
 
-export default function CatalogPreviewSection({ onScrollNext }) {
+export default function CatalogPreviewSection() {
+    const qualityMetrics = [
+        { label: "Soluciones activas", value: "40+" },
+        { label: "Categorías especializadas", value: "8" },
+        { label: "Acompañamiento personalizado", value: "1:1" }
+    ];
+
     return (
         <section
             data-snap
@@ -72,29 +78,42 @@ export default function CatalogPreviewSection({ onScrollNext }) {
             bg-background-end
             min-h-[85vh]
             flex flex-col items-center justify-center
-            text-center
             h-250
-            px-6 py-28
+            px-6 py-24 md:py-28
+            overflow-hidden
         "
         >
-            <div className="max-w-3xl text-center space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground-invert">
-                    Servicios y soluciones que impulsan tu crecimiento
-                </h2>
-                <p className="text-foreground-invert/70 text-lg">
-                    Descubrí asesoría financiera, productos estratégicos y servicios diseñados para escalar con visión y
-                    control.
-                </p>
+            <div className="absolute -top-40 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-primary-soft/20 blur-[140px]" />
+            <div className="absolute -bottom-48 right-0 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
+
+            <div className="relative z-10 w-full max-w-6xl">
+                <div className="mx-auto max-w-4xl text-center space-y-5">
+                    <h2 className="text-4xl md:text-5xl font-bold leading-tight text-foreground-invert">
+                        Servicios y soluciones que impulsan tu crecimiento
+                    </h2>
+                </div>
+
+                <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+                    {qualityMetrics.map((metric) => (
+                        <div
+                            key={metric.label}
+                            className="rounded-2xl border border-white/15 bg-white/8 px-6 py-5 text-center backdrop-blur-sm"
+                        >
+                            <p className="text-3xl font-bold text-foreground-invert">{metric.value}</p>
+                            <p className="mt-2 text-sm text-foreground-invert/70">{metric.label}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            <div className="mt-16 container mx-auto">
-                <CatalogCarousel items={catalogItems} />
+            <div className="relative z-10 mt-14 container mx-auto">
+                <CatalogCarousel items={catalogItems}/>
             </div>
 
-            <div className="mt-14 flex flex-wrap justify-center gap-6">
+            {/*<div className="relative z-10 mt-12 flex flex-wrap justify-center gap-4">
                 <Button variant="white" to="/catalogo">Explorar catálogo</Button>
-                <Button variant="white" to="/catalogo">Ver servicios</Button>
-            </div>
+                <Button variant="outline" to="/catalogo">Ver servicios destacados</Button>
+            </div>*/}
         </section>
     );
 }
