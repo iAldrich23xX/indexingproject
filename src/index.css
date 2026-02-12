@@ -142,4 +142,31 @@
                 0 0 14px rgba(173, 80, 220, 0.45),
                 0 0 28px rgba(165, 60, 200, 0.25);
     }
+
+    .partner-marquee {
+        overflow: hidden;
+    }
+
+    .partner-marquee-track {
+        display: flex;
+        width: max-content;
+        gap: 1rem;
+        animation: partner-marquee-scroll 30s linear infinite;
+        will-change: transform;
+    }
+
+    @media (max-width: 768px) {
+        .partner-marquee-track {
+            animation-duration: 22s;
+        }
+    }
+
+    @keyframes partner-marquee-scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
 }
