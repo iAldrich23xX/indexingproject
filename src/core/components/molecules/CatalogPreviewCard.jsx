@@ -27,6 +27,8 @@ export default function CatalogPreviewCard({
                         transition-transform duration-700
                         group-hover:scale-110
                     "
+                    loading="lazy"
+                    onError={(e) => { e.target.src = 'https://placehold.co/600x400?text=No+Image'; }}
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
