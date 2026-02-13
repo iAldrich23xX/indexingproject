@@ -66,8 +66,8 @@ export default function HeroSection({ onScrollNext }) {
                 </ScrollReveal>
             </DotGrid>
 
-            <div className="pointer-events-none absolute inset-0 hidden items-center justify-end md:flex">
-                <ScrollReveal className="pr-8 lg:pr-20" preset="fadeRight" fromX={70} delay={0.2} duration={0.9}>
+            <div className="pointer-events-none absolute inset-0 hidden items-center justify-end xl:flex">
+                <ScrollReveal className="pr-10 2xl:pr-20" preset="fadeRight" fromX={70} delay={0.2} duration={0.9}>
                     <Logo size="hero" variant="hero" showText={false} />
                 </ScrollReveal>
             </div>
