@@ -1,5 +1,6 @@
 import CatalogCarousel from '@core/components/organisms/CatalogCarousel.jsx';
 import ScrollReveal from "@core/components/molecules/ScrollReveal.jsx";
+import CountUpValue from "@core/components/atoms/CountUpValue.jsx";
 import { catalogItems, catalogQualityMetrics } from "@core/data/home/catalogData.js";
 
 export default function CatalogPreviewSection() {
@@ -33,7 +34,12 @@ export default function CatalogPreviewSection() {
                             className="rounded-2xl border border-white/15 bg-white/8 px-6 py-5 text-center backdrop-blur-sm"
                             {...(metric.animation || {})}
                         >
-                            <p className="text-3xl font-bold text-foreground-invert">{metric.value}</p>
+                            <p className="text-3xl font-bold text-foreground-invert">
+                                <CountUpValue
+                                    value={metric.value}
+                                    duration={metric.countDuration || 1.3}
+                                />
+                            </p>
                             <p className="mt-2 text-sm text-foreground-invert/70">{metric.label}</p>
                         </ScrollReveal>
                     ))}

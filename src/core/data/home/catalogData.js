@@ -62,16 +62,19 @@ export const catalogQualityMetrics = [
     {
         label: "Soluciones activas",
         value: "40+",
-        animation: { preset: "fadeRight", delay: 0.02, duration: 2.0 }
+        animation: { preset: "fadeRight", delay: 0.02, duration: 2.0 },
+        countDuration: 1.5
     },
     {
         label: "Categorías especializadas",
         value: "8",
-        animation: { preset: "zoomIn", delay: 0.1, duration: 2.0 }
+        animation: { preset: "zoomIn", delay: 0.1, duration: 2.0 },
+        countDuration: 1.2
     },
     {
         label: "Acompañamiento personalizado",
         value: "1:1",
-        animation: { preset: "fadeLeft", delay: 0.18, duration: 2.0 }
+        animation: { preset: "fadeLeft", delay: 0.18, duration: 2.0 },
+        countDuration: 1.0
     }
 ];
