@@ -13,8 +13,8 @@ export default function PartnerMarquee({
                 {title}
             </p>
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent sm:w-16 md:w-24" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent sm:w-16 md:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-card to-transparent sm:w-16 md:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-card to-transparent sm:w-16 md:w-24" />
 
             <div className="partner-marquee border-y border-border py-3 sm:py-4">
                 <div className="partner-marquee-track">

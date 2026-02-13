@@ -10,18 +10,18 @@ export default function ErrorPage() {
     const errorMsg = queryParams.get("error") || "Ocurrió un error inesperado.";
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-gray-900 to-blue-950 text-white p-6">
-            <div className="bg-gradient-to-b from-gray-950 via-gray-900 to-black shadow-2xl rounded-2xl p-10 max-w-md w-full text-center border border-gray-800">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-background-end via-background-mid to-background p-6 text-foreground-invert">
+            <div className="w-full max-w-md rounded-2xl border border-border/60 bg-background-end/85 p-10 text-center shadow-2xl backdrop-blur-sm">
                 <div className="flex justify-center mb-6">
-                    <AlertTriangle className="w-16 h-16 text-green-500 animate-pulse" />
+                    <AlertTriangle className="h-16 w-16 animate-pulse text-warning" />
                 </div>
-                <h1 className="text-4xl font-extrabold text-green-500 mb-4">
+                <h1 className="mb-4 text-4xl font-extrabold text-warning">
                     ¡Oops! Error
                 </h1>
-                <p className="text-gray-300 mb-8">{errorMsg}</p>
+                <p className="mb-8 text-foreground-invert/75">{errorMsg}</p>
                 <button
                     onClick={() => navigate("/")}
-                    className="bg-gradient-to-r from-green-600 to-green-900 text-white px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+                    className="rounded-xl bg-primary px-6 py-3 text-foreground-invert shadow-md transition-all hover:scale-105 hover:bg-primary-soft hover:shadow-lg"
                 >
                     Volver al inicio
                 </button>

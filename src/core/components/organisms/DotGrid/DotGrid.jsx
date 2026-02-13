@@ -11,8 +11,8 @@ import { useDraw } from '@core/components/organisms/DotGrid/useDraw.jsx';
 export default function DotGrid({
                                     dotSize = 16,
                                     gap = 32,
-                                    baseColor = '#5227FF',
-                                    activeColor = '#5227FF',
+                                    baseColor = 'bg-primary-soft/35',
+                                    activeColor = 'bg-primary',
                                     proximity = 150,
                                     speedTrigger = 100,
                                     shockRadius = 250,

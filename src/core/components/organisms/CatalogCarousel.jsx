@@ -118,7 +118,7 @@ export default function CatalogCarousel({
             <button
                 onClick={prev}
                 aria-label="Ver elemento anterior"
-                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-2 py-1 text-base text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 sm:px-3 sm:py-2 sm:text-xl md:left-2"
+                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-foreground-invert/30 bg-background-end/65 px-2 py-1 text-base text-foreground-invert backdrop-blur transition hover:scale-105 hover:bg-background-end/85 sm:px-3 sm:py-2 sm:text-xl md:left-2"
             >
                 ‹
             </button>
@@ -126,7 +126,7 @@ export default function CatalogCarousel({
             <button
                 onClick={next}
                 aria-label="Ver siguiente elemento"
-                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-2 py-1 text-base text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 sm:px-3 sm:py-2 sm:text-xl md:right-2"
+                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-foreground-invert/30 bg-background-end/65 px-2 py-1 text-base text-foreground-invert backdrop-blur transition hover:scale-105 hover:bg-background-end/85 sm:px-3 sm:py-2 sm:text-xl md:right-2"
             >
                 ›
             </button>
@@ -140,7 +140,7 @@ export default function CatalogCarousel({
                         className={`h-2 rounded-full transition-all duration-300 ${
                             current % length === index
                                 ? "bg-accent w-8"
-                                : "bg-white/35 hover:bg-white/60 w-2"
+                                : "bg-foreground-invert/35 hover:bg-foreground-invert/60 w-2"
                         }`}
                     />
                 ))}

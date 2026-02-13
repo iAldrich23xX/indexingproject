@@ -47,14 +47,14 @@ export default function HeroSection({ onScrollNext }) {
                     fromY={36}
                     duration={0.9}
                 >
-                    <h1 className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-foreground-invert drop-shadow-[0_0_20px_rgba(106,18,106,1)] sm:text-4xl md:mb-8 md:text-6xl lg:text-7xl">
+                    <h1 className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-foreground-invert drop-shadow-lg sm:text-4xl md:mb-8 md:text-6xl lg:text-7xl">
                         FINANZAS REALES
                         <span className="block text-primary-soft">
                             EN CADA KILÓMETRO
                         </span>
                     </h1>
 
-                    <div className="flex w-full max-w-md flex-col gap-3 drop-shadow-[0_0_20px_rgba(106,18,106,1)] sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+                    <div className="flex w-full max-w-md flex-col gap-3 drop-shadow-lg sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
                         <Button variant="white" to="/catalogo" className="w-full sm:w-auto">
                             Ver catálogo
                         </Button>
@@ -117,7 +117,7 @@ export default function HeroSection({ onScrollNext }) {
                         neon-hud-solid
 
                         hover:scale-110
-                        hover:shadow-[0_0_30px_rgba(106,18,106,0.8)]
+                        hover:shadow-xl hover:shadow-primary/40
                         transition-all
                         duration-300
                         ease-out

@@ -7,14 +7,14 @@ export default function NavLink({ children, to, end = false }) {
             end={end}
             className={({ isActive }) => `
                     px-4 py-2 rounded-full
-                    text-sm font-medium
+                    text-sm
                     transition-all duration-300
                     backdrop-blur-sm
 
                     ${
                         isActive
-                            ? "text-foreground bg-primary/20 shadow-[0_0_20px_rgba(157,105,168,0.6)]"
-                            : "text-muted-foreground hover:text-foreground hover:bg-card/40"
+                            ? "font-semibold text-foreground-invert bg-primary/30 ring-1 ring-primary-soft/70 shadow-lg shadow-primary-soft/45"
+                            : "font-semibold text-foreground-invert hover:text-foreground-invert hover:bg-foreground-invert/10"
                     }
                 `}
         >

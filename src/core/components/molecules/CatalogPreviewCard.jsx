@@ -18,7 +18,7 @@ export default function CatalogPreviewCard({
                 transition-all duration-500
                 hover:-translate-y-1.5
                 hover:border-primary-soft/60
-                hover:shadow-[0_22px_60px_rgba(0,0,0,0.35)]
+                hover:shadow-2xl hover:shadow-primary/20
             "
         >
             <div className="relative h-48 overflow-hidden sm:h-52 lg:h-56">
@@ -40,7 +40,7 @@ export default function CatalogPreviewCard({
                     <span className="
                         absolute top-3 left-3 sm:top-4 sm:left-4
                         bg-primary/90
-                        text-white text-[11px] font-semibold
+                        text-foreground-invert text-[11px] font-semibold
                         px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full
                         uppercase tracking-[0.16em]
                     ">
@@ -48,7 +48,7 @@ export default function CatalogPreviewCard({
                     </span>
                 )}
 
-                <span className="absolute right-3 top-3 rounded-full border border-white/35 bg-white/15 px-2.5 py-1 text-[11px] font-medium text-black backdrop-blur-sm sm:right-4 sm:top-4 sm:px-3">
+                <span className="absolute right-3 top-3 rounded-full border border-foreground-invert/35 bg-foreground-invert/15 px-2.5 py-1 text-[11px] font-medium text-foreground-invert backdrop-blur-sm sm:right-4 sm:top-4 sm:px-3">
                     Recomendado
                 </span>
             </div>

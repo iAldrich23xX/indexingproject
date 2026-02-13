@@ -4,14 +4,14 @@ export const socialLinks = [
         label: "WhatsApp",
         href: "https://wa.me/573000000000",
         icon: "MessageCircle",
-        className: "bg-[#25D366] text-white hover:bg-[#20bd5a]"
+        className: "bg-success text-foreground-invert hover:bg-success/85"
     },
     {
         id: "instagram",
         label: "Instagram",
         href: "https://instagram.com/",
         icon: "Instagram",
-        className: "bg-primary text-white hover:bg-primary-soft"
+        className: "bg-primary text-foreground-invert hover:bg-primary-soft"
     },
     {
         id: "facebook",
@@ -25,13 +25,13 @@ export const socialLinks = [
         label: "LinkedIn",
         href: "https://linkedin.com/",
         icon: "Linkedin",
-        className: "bg-foreground text-white hover:bg-foreground/90"
+        className: "bg-foreground text-foreground-invert hover:bg-foreground/90"
     },
     {
         id: "youtube",
         label: "YouTube",
         href: "https://youtube.com/",
         icon: "Youtube",
-        className: "bg-red-600 text-white hover:bg-red-500"
+        className: "bg-destructive text-foreground-invert hover:bg-destructive/85"
     }
 ];

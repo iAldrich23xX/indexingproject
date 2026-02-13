@@ -9,7 +9,7 @@ export default function Footer() {
             data-snap
             className="relative bg-background-end px-4 py-12 sm:px-6 sm:py-14 md:py-16 lg:py-16"
         >
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background-end to-[#1a081d]/50" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background-end to-background-gradial/50" />
             <div className="pointer-events-none absolute -top-16 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary-soft/10 blur-[100px]" />
 
             <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col justify-between">

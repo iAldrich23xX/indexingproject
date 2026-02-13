@@ -16,15 +16,15 @@ export default function Button({
 
     const variants = {
         primary:
-            "bg-primary text-white hover:scale-105 hover:shadow-xl shadow-primary/30",
+            "bg-primary text-foreground-invert hover:scale-105 hover:shadow-xl shadow-primary/30",
 
 
         white:
-            "bg-white text-black hover:bg-gray-100 hover:scale-105 shadow-lg",
+            "bg-card text-foreground hover:bg-background hover:scale-105 shadow-lg",
 
 
         outline:
-            "border border-white/40 text-white hover:bg-white/10 hover:scale-105",
+            "border border-foreground-invert/40 text-foreground-invert hover:bg-foreground-invert/10 hover:scale-105",
     };
 
 

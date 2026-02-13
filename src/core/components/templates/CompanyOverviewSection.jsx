@@ -7,7 +7,7 @@ export default function CompanyOverviewSection() {
     return (
         <section
             data-snap
-            className="relative min-h-[100svh] overflow-x-hidden bg-white px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24"
+            className="relative min-h-[100svh] overflow-x-hidden bg-card px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24"
         >
             <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center">
                 <div className="mx-auto max-w-4xl text-center">

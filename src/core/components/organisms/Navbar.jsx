@@ -10,7 +10,7 @@ export default function Navbar() {
                     rounded-full
                     p-[1.5px]
                     bg-gradient-to-r from-primary via-primary-soft to-primary
-                    shadow-[0_0_30px_rgba(106,18,106,0.35)]
+                    shadow-xl shadow-primary/30
                 "
             >
                 <div

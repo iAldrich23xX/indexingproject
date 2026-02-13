@@ -41,7 +41,7 @@ export default function CatalogPreviewSection() {
                     {catalogQualityMetrics.map((metric) => (
                         <ScrollReveal
                             key={metric.label}
-                            className="rounded-2xl border border-white/15 bg-white/8 px-4 py-4 text-center backdrop-blur-sm sm:px-6 sm:py-5"
+                            className="rounded-2xl border border-foreground-invert/15 bg-foreground-invert/8 px-4 py-4 text-center backdrop-blur-sm sm:px-6 sm:py-5"
                             {...(metric.animation || {})}
                         >
                             <p className="text-2xl font-bold text-foreground-invert sm:text-3xl">

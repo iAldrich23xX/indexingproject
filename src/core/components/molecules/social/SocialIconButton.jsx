@@ -14,7 +14,7 @@ export default function SocialIconButton({
             aria-label={label}
             title={label}
             className={clsx(
-                "group flex h-10 w-10 items-center justify-center rounded-full border border-border/70 shadow-[0_8px_22px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-1 sm:h-11 sm:w-11",
+                "group flex h-10 w-10 items-center justify-center rounded-full border border-border/70 shadow-lg shadow-foreground/20 transition-all duration-300 hover:-translate-y-1 sm:h-11 sm:w-11",
                 className
             )}
         >
