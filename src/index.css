@@ -132,6 +132,15 @@
         mix-blend-mode: multiply;
     }
 
+    @media (max-width: 768px) {
+        .tire-img {
+            top: -18%;
+            left: -46%;
+            width: 120%;
+            opacity: 0.24;
+        }
+    }
+
     .neon-hud-solid {
         color: rgba(231, 190, 255, 0.95);
 

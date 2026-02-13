@@ -5,8 +5,7 @@ export default function NavLink({ children, to, end = false }) {
         <RouterNavLink
             to={to}
             end={end}
-            className={({ isActive }) =>
-                {`
+            className={({ isActive }) => `
                     px-4 py-2 rounded-full
                     text-sm font-medium
                     transition-all duration-300
@@ -18,7 +17,6 @@ export default function NavLink({ children, to, end = false }) {
                             : "text-muted-foreground hover:text-foreground hover:bg-card/40"
                     }
                 `}
-            }
         >
             {children}
         </RouterNavLink>

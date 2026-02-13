@@ -14,7 +14,7 @@ export default function HeroSection({ onScrollNext }) {
     return (
         <section data-snap className="w-full h-250 relative min-h-screen">
             <div
-                className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat bg-fixed"
+                className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
                 style={{ backgroundImage: `url(${background})` }}
             />
 
@@ -41,33 +41,33 @@ export default function HeroSection({ onScrollNext }) {
                 returnDuration={1.5}
             >
                 <ScrollReveal
-                    className="flex flex-col items-center text-center"
+                    className="flex flex-col items-center px-4 pt-20 text-center sm:px-6 md:pt-12"
                     preset="zoomIn"
                     fromScale={0.84}
                     fromY={36}
-                    duration={2.0}
+                    duration={0.9}
                 >
-                    <h1 className="text-5xl md:text-7xl text-foreground-invert font-extrabold mb-8 tracking-tight leading-tight drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
+                    <h1 className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-foreground-invert drop-shadow-[0_0_20px_rgba(106,18,106,1)] sm:text-4xl md:mb-8 md:text-6xl lg:text-7xl">
                         FINANZAS REALES
                         <span className="block text-primary-soft">
                             EN CADA KILÓMETRO
                         </span>
                     </h1>
 
-                    <div className="flex flex-col sm:flex-row gap-4 drop-shadow-[0_0_20px_rgba(106,18,106,1)]">
-                        <Button variant="white" to="/catalogo">
+                    <div className="flex w-full max-w-md flex-col gap-3 drop-shadow-[0_0_20px_rgba(106,18,106,1)] sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+                        <Button variant="white" to="/catalogo" className="w-full sm:w-auto">
                             Ver catálogo
                         </Button>
 
-                        <Button variant="primary" to="/about">
+                        <Button variant="primary" to="/about" className="w-full sm:w-auto">
                             Sobre nosotros
                         </Button>
                     </div>
                 </ScrollReveal>
             </DotGrid>
 
-            <div className="absolute inset-0 flex items-center justify-end pointer-events-none">
-                <ScrollReveal className="pr-28" preset="fadeRight" fromX={70} delay={0.25} duration={2.0}>
+            <div className="pointer-events-none absolute inset-0 hidden items-center justify-end md:flex">
+                <ScrollReveal className="pr-8 lg:pr-20" preset="fadeRight" fromX={70} delay={0.2} duration={0.9}>
                     <Logo size="hero" variant="hero" showText={false} />
                 </ScrollReveal>
             </div>
@@ -76,7 +76,7 @@ export default function HeroSection({ onScrollNext }) {
                 className="
                     pointer-events-none
                     absolute bottom-0 left-0 right-0
-                    h-100
+                    h-48 sm:h-56 md:h-72
                     z-20
                     bg-gradient-to-b
                     from-transparent
@@ -88,15 +88,14 @@ export default function HeroSection({ onScrollNext }) {
                 <ScrollReveal
                     className="
                         absolute
-                        bottom-60
-                        text-lg
-                        md:text-xl
+                        bottom-24 hidden md:block
+                        text-base lg:text-lg
                         font-medium
                         tracking-widest
                         neon-hud-solid
                     "
 
-                    delay={0.25} duration={2.0}
+                    delay={0.3} duration={0.9}
                 >
                     HUB DE SERVICIOS | ASESORÍA FINANCIERA
                 </ScrollReveal>
@@ -112,13 +111,9 @@ export default function HeroSection({ onScrollNext }) {
                         flex
                         items-center
                         justify-center
-                        w-20 h-20
+                        w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16
                         rounded-full
 
-                        text-lg
-                        md:text-xl
-                        font-medium
-                        tracking-widest
                         neon-hud-solid
 
                         hover:scale-110
@@ -132,7 +127,7 @@ export default function HeroSection({ onScrollNext }) {
                         focus:ring-primary/60
                     "
                 >
-                    <ArrowDown className="w-20 h-20 animate-bounce" />
+                    <ArrowDown className="h-7 w-7 animate-bounce sm:h-8 sm:w-8 md:h-9 md:w-9" />
                 </span>
             </div>
         </section>

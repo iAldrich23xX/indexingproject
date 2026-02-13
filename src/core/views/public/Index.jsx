@@ -29,13 +29,13 @@ export default function Index() {
                 <Navbar />
                 <HeroSection onScrollNext={snap.scrollNext}/>
 
-                <CatalogPreviewSection onScrollNext={snap.scrollNext}/>
+                <CatalogPreviewSection />
 
-                <CompanyOverviewSection onScrollNext={snap.scrollNext}/>
+                <CompanyOverviewSection />
 
                 <FloatingSocialBar />
 
-                <Footer onScrollNext={snap.scrollNext}/>
+                <Footer />
             </main>
         </>
     );

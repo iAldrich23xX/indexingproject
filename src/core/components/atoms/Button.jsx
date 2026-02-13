@@ -11,7 +11,7 @@ export default function Button({
                                    className,
                                }) {
     const baseStyles =
-        "inline-flex items-center justify-center px-6 py-3 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft";
+        "inline-flex items-center justify-center px-5 py-2.5 text-sm sm:px-6 sm:py-3 sm:text-base rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft";
 
 
     const variants = {

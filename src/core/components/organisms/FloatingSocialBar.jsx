@@ -23,7 +23,7 @@ export default function FloatingSocialBar() {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="fixed bottom-5 right-4 z-[70] flex flex-col gap-2 md:bottom-7 md:right-6"
+            className="fixed bottom-3 right-2 z-[70] flex flex-col gap-2 sm:bottom-5 sm:right-4 md:bottom-7 md:right-6"
         >
             {socialLinks.map((social) => {
                 const Icon = iconMap[social.icon];

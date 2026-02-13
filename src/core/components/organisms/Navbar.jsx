@@ -4,7 +4,7 @@ import WebPill from '@core/components/atoms/WebPill';
 
 export default function Navbar() {
     return (
-        <header className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-full max-w-5xl px-4">
+        <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-full max-w-5xl px-3 sm:top-5 sm:px-4">
             <div
                 className="
                     rounded-full
@@ -17,7 +17,7 @@ export default function Navbar() {
                     className="
                         relative
                         flex items-center
-                        px-6 py-3
+                        px-3 py-2 sm:px-5 sm:py-3
                         rounded-full
                         bg-background-end
                         backdrop-blur-xl
@@ -35,7 +35,7 @@ export default function Navbar() {
                         <Logo showText={false} />
                     </div>
 
-                    <div className="absolute left-1/2 -translate-x-1/2">
+                    <div className="absolute left-1/2 hidden -translate-x-1/2 md:block">
                         <WebPill />
                     </div>
 

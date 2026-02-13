@@ -8,12 +8,32 @@ export default function CatalogCarousel({
                                         }) {
     const length = items.length;
     const extendedItems = useDuplicatedList(items);
+    const [itemsPerView, setItemsPerView] = useState(3);
 
     const [current, setCurrent] = useState(0);
     const [isAutoPlay, setIsAutoPlay] = useState(true);
     const [transitionEnabled, setTransitionEnabled] = useState(true);
 
     const timeoutRef = useRef(null);
+
+    useEffect(() => {
+        const updateItemsPerView = () => {
+            if (window.innerWidth < 768) {
+                setItemsPerView(1);
+                return;
+            }
+            if (window.innerWidth < 1024) {
+                setItemsPerView(2);
+                return;
+            }
+            setItemsPerView(3);
+        };
+
+        updateItemsPerView();
+        window.addEventListener("resize", updateItemsPerView);
+
+        return () => window.removeEventListener("resize", updateItemsPerView);
+    }, []);
 
     const stopAutoPlay = () => {
         setIsAutoPlay(false);
@@ -79,7 +99,7 @@ export default function CatalogCarousel({
             <div
                 className={`flex ${transitionEnabled ? "transition-transform duration-700 ease-in-out" : ""}`}
                 style={{
-                    transform: `translateX(-${current * (100 / (length >= 3 ? 3 : length))}%)`
+                    transform: `translateX(-${current * (100 / (length >= itemsPerView ? itemsPerView : length))}%)`
                 }}
             >
                 {extendedItems.map((item, index) => (
@@ -98,7 +118,7 @@ export default function CatalogCarousel({
             <button
                 onClick={prev}
                 aria-label="Ver elemento anterior"
-                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-3 py-2 text-xl text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 md:left-2"
+                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-2 py-1 text-base text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 sm:px-3 sm:py-2 sm:text-xl md:left-2"
             >
                 ‹
             </button>
@@ -106,7 +126,7 @@ export default function CatalogCarousel({
             <button
                 onClick={next}
                 aria-label="Ver siguiente elemento"
-                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-3 py-2 text-xl text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 md:right-2"
+                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/45 px-2 py-1 text-base text-white backdrop-blur transition hover:scale-105 hover:bg-black/65 sm:px-3 sm:py-2 sm:text-xl md:right-2"
             >
                 ›
             </button>

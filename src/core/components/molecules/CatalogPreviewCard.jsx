@@ -21,7 +21,7 @@ export default function CatalogPreviewCard({
                 hover:shadow-[0_22px_60px_rgba(0,0,0,0.35)]
             "
         >
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-48 overflow-hidden sm:h-52 lg:h-56">
                 <img
                     src={image}
                     alt={title}
@@ -38,27 +38,27 @@ export default function CatalogPreviewCard({
 
                 {category && (
                     <span className="
-                        absolute top-4 left-4
+                        absolute top-3 left-3 sm:top-4 sm:left-4
                         bg-primary/90
                         text-white text-[11px] font-semibold
-                        px-3 py-1.5 rounded-full
+                        px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full
                         uppercase tracking-[0.16em]
                     ">
                         {category}
                     </span>
                 )}
 
-                <span className="absolute right-4 top-4 rounded-full border border-white/35 bg-white/15 px-3 py-1 text-[11px] font-medium text-black backdrop-blur-sm">
+                <span className="absolute right-3 top-3 rounded-full border border-white/35 bg-white/15 px-2.5 py-1 text-[11px] font-medium text-black backdrop-blur-sm sm:right-4 sm:top-4 sm:px-3">
                     Recomendado
                 </span>
             </div>
 
-            <div className="p-6 flex flex-1 flex-col gap-4">
-                <h3 className="text-xl font-semibold leading-tight text-foreground group-hover:text-primary transition-colors">
+            <div className="flex flex-1 flex-col gap-3 p-4 sm:gap-4 sm:p-6">
+                <h3 className="text-lg font-semibold leading-tight text-foreground transition-colors group-hover:text-primary sm:text-xl">
                     {title}
                 </h3>
 
-                <p className="text-sm text-foreground/75 leading-relaxed">
+                <p className="text-sm leading-relaxed text-foreground/75">
                     {description}
                 </p>
 

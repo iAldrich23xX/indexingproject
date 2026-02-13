@@ -7,36 +7,36 @@ export default function CompanyOverviewSection() {
     return (
         <section
             data-snap
-            className="relative min-h-screen h-250 overflow-x-hidden bg-white px-6 pt-40 pb-20 md:pt-44 md:pb-24"
+            className="relative min-h-[100svh] overflow-x-hidden bg-white px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24"
         >
             <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center">
-                <siv className="mx-auto max-w-4xl text-center" >
-                    <ScrollReveal preset="blurUp" fromY={34} duration={5.0}>
+                <div className="mx-auto max-w-4xl text-center">
+                    <ScrollReveal preset="blurUp" fromY={24} duration={0.85}>
                         <span className="inline-flex rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                             {companySummary.badge}
                         </span>
                     </ScrollReveal>
 
-                    <ScrollReveal preset="fadeUp" fromY={34} duration={5.0}>
-                        <h2 className="mt-6 text-4xl font-bold leading-tight text-foreground md:text-5xl">
+                    <ScrollReveal preset="fadeUp" fromY={24} duration={0.85} delay={0.08}>
+                        <h2 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:mt-6 sm:text-4xl md:text-5xl">
                             {companySummary.title}
                         </h2>
                     </ScrollReveal>
 
-                    <ScrollReveal preset="fadeLeft" duration={5.0}>
-                        <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-foreground/70 md:text-lg">
+                    <ScrollReveal preset="fadeLeft" duration={0.85} delay={0.12}>
+                        <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-foreground/70 sm:mt-5 sm:text-base md:text-lg">
                             {companySummary.paragraphs[0]}
                         </p>
                     </ScrollReveal>
 
-                    <ScrollReveal preset="fadeRight" duration={5.0}>
+                    <ScrollReveal preset="fadeRight" duration={0.85} delay={0.18}>
                         <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-foreground/65 md:text-base">
                             {companySummary.paragraphs[1]}
                         </p>
                     </ScrollReveal>
-                </siv>
+                </div>
 
-                <div className="mt-12 grid gap-5 md:grid-cols-3">
+                <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
                     {strategicPillars.map((pillar) => (
                         <ScrollReveal key={pillar.title} {...(pillar.animation || {})}>
                             <CompanyPillarCard
@@ -47,7 +47,7 @@ export default function CompanyOverviewSection() {
                     ))}
                 </div>
 
-                <ScrollReveal preset="fadeUp" fromY={26} delay={0.18}>
+                <ScrollReveal preset="fadeUp" fromY={20} delay={0.12} duration={0.8}>
                     <PartnerMarquee items={alliedPartners}/>
                 </ScrollReveal>
             </div>
