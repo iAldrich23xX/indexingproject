@@ -2,6 +2,7 @@ import Logo from '@core/components/atoms/Logo.jsx';
 import FooterLinkColumn from "@core/components/molecules/footer/FooterLinkColumn.jsx";
 import ScrollReveal from "@core/components/molecules/ScrollReveal.jsx";
 import { footerColumns, footerLegalLinks } from "@core/data/home/footerData.js";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -48,9 +49,9 @@ export default function Footer() {
                     <p>© {new Date().getFullYear()} Indexing Project. Rodando con estrategia.</p>
                     <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                         {footerLegalLinks.map((link) => (
-                            <a key={link} href="#" className="transition-colors hover:text-foreground-invert">
-                                {link}
-                            </a>
+                            <Link key={link.to} to={link.to} className="transition-colors hover:text-foreground-invert">
+                                {link.label}
+                            </Link>
                         ))}
                     </div>
                 </ScrollReveal>

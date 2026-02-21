@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 export default function FooterLinkColumn({
     title,
@@ -14,10 +15,13 @@ export default function FooterLinkColumn({
             </h3>
             <ul className={clsx("mt-4 space-y-3", listClassName)}>
                 {links.map((link) => (
-                    <li key={link}>
-                        <a href="#" className={clsx("text-sm text-foreground-invert/75 transition-colors hover:text-foreground-invert", linkClassName)}>
-                            {link}
-                        </a>
+                    <li key={link.to || link.label}>
+                        <Link
+                            to={link.to || "#"}
+                            className={clsx("text-sm text-foreground-invert/75 transition-colors hover:text-foreground-invert", linkClassName)}
+                        >
+                            {link.label}
+                        </Link>
                     </li>
                 ))}
             </ul>

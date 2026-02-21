@@ -1,8 +1,8 @@
-import {BrowserRouter, useLocation} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "@core/routes/AppRoutes.jsx";
 import ErrorBoundary from "@core/routes/ErrorBoundary.jsx";
 
-import "@core/App.css"
+import "@core/App.css";
 
 function App() {
     return (

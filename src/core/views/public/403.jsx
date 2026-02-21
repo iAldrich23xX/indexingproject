@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Page403() {
     return (
-        <div
-            className="h-screen w-full flex items-center justify-end bg-gradient-to-b from-background-end to-background-gradial px-6 text-foreground-invert"
+        <main
+            className="min-h-[65vh] w-full flex items-center justify-end bg-gradient-to-b from-background-end to-background-gradial px-4 py-10 text-foreground-invert sm:px-6"
         >
-            <div className="max-w-2xl text-right p-8">
+            <div className="max-w-2xl text-right p-4 sm:p-8">
                 <h1 className="mb-6 text-8xl font-extrabold text-foreground-invert md:text-[10rem]">
                     403
                 </h1>
@@ -23,6 +23,6 @@ export default function Page403() {
                     Volver al inicio
                 </Link>
             </div>
-        </div>
+        </main>
     );
 }

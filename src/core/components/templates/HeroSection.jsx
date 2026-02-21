@@ -59,7 +59,7 @@ export default function HeroSection({ onScrollNext }) {
                             Ver catálogo
                         </Button>
 
-                        <Button variant="primary" to="/about" className="w-full sm:w-auto">
+                        <Button variant="primary" to="/info/sobre-nosotros" className="w-full sm:w-auto">
                             Sobre nosotros
                         </Button>
                     </div>

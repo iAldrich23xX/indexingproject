@@ -3,7 +3,10 @@ export default function CatalogPreviewCard({
                                                description,
                                                image,
                                                category,
-                                               cta = "Ver más"
+                                               type,
+                                               price,
+                                               cta = "Ver más",
+                                               onCtaClick
                                            }) {
     return (
         <div
@@ -62,8 +65,23 @@ export default function CatalogPreviewCard({
                     {description}
                 </p>
 
+                {(type || price) && (
+                    <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+                        {type && (
+                            <span className="rounded-full border border-primary/35 bg-primary/8 px-2.5 py-1 font-semibold uppercase tracking-[0.1em] text-primary">
+                                {type}
+                            </span>
+                        )}
+                        {price && (
+                            <span className="font-semibold text-foreground/85">{price}</span>
+                        )}
+                    </div>
+                )}
+
                 <div className="mt-auto pt-2">
                     <button
+                        type="button"
+                        onClick={onCtaClick}
                         className="
                             inline-flex items-center gap-2
                             text-sm font-semibold
